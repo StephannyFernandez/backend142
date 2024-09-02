@@ -9,7 +9,7 @@ router.post('/',citaController.agregarCitas);
 router.get('/',citaController.mostrarCitas);
 router.get('/:id',citaController.mostrarCitas);
 router.put('/:id',citaController.modificarCitas);
-//router.patch('/:id',citaController.editarCitas);
+/*router.patch('/:id',citaController.editarCitas);*/
 router.delete('/:id',citaController.eliminarCitas);
 
 
