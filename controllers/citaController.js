@@ -1,24 +1,23 @@
 const cita = require('../models/cita');
 const Cita =require('../models/cita');
 
-//funcion agregar citas
+//funcion agregar clientes
 
 
 exports.agregarCitas =async(req, res)  =>{
-    try{
-    
-    
-    
-        let citas;
-        citas =new Cita(req.body)
-    await citas.save();
-    res.json(citas);
-    
-    }catch (error){
-        console.log(error)
-    res.status(500).send('hubo un error al agregar la cita');
-    }}
-    
+try{
+
+
+
+    let citas;
+    citas =new Cita(req.body)
+await citas.save();
+res.json(citas);
+
+}catch (error){
+    console.log(error)
+res.status(500).send('hubo un error al agregar a la cita');
+}}
 
 
 
@@ -39,11 +38,11 @@ exports.mostrarCitas = async (req, res) =>{
 }
 
 
-//buscar citas
+//buscar clientes
 exports.BuscarCita = async (req, res) =>{
     try {
 let citas = await Cita.findById(req.params.id);
-if (citas){
+if (!citas){
     res.status(404).send({msg:"la cita no se encuentra por iD"});
 }else{
 res.json(citas);
@@ -51,19 +50,19 @@ res.json(citas);
 
 } catch (error) {
     console.log(error)
-    res.status(500).send('hubo un error al buscar la cita');
+    res.status(500).send('hubo un error al buscar una cita');
    
 }
 }
 
-//funcion modificar citas con el metodo put
+//funcion modificar clientes con el metodo put
 
 exports.modificarCitas = async (req, res)=>{
 try{
 
     const citas = await Cita.findOneAndUpdate({_id: req.params.id}, req.body, {new:true}); 
     if(!citas)
-        res.status(404).send("cita no encontrada");
+        res.status(404).send("cita no encontrado");
     else
     res.json(citas);
 
@@ -88,7 +87,7 @@ exports.editarCitas = async(req,res)=>{
 
     }catch (error){
         console.log(error)
-        res.status(500).send('hubo un error al editar la cita');
+        res.status(500).send('hubo un error al editar una cita');
     }
 }
 
@@ -102,11 +101,11 @@ exports.eliminarCitas = async(req, res) =>{
             return
         }
         await Cita.findOneAndDelete({_id: req.params.id})
-        res.json({msg: "la cita fue eliminada con exito"});
+        res.json({msg: "la cita fue eliminado con exito"});
         return
 
         }catch (error){
             console.log(error)
-            res.status(500).send('hubo un error al eliminar la cita');
+            res.status(500).send('hubo un error al eliminar una cita');
         }
     }

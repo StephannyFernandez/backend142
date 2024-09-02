@@ -42,7 +42,7 @@ exports.mostrarClientes = async (req, res) =>{
 exports.BuscarCliente = async (req, res) =>{
     try {
 let clientes = await Cliente.findById(req.params.id);
-if (clientes){
+if (!clientes){
     res.status(404).send({msg:"el cliente no se encuentra por iD"});
 }else{
 res.json(clientes);
