@@ -30,7 +30,7 @@ const citaSchema = mongoose.Schema({
         required:true
     },
     FechayHora:{
-        type:Date,
+        type:String,
         required:true
     },
 
