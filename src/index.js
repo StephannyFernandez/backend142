@@ -15,6 +15,7 @@ app.use(express.json());
 
 //rutas del proyecto
 
+
 app.use('/api/clientes',require('../routes/clientesRutas'));
 app.use('/api/citas',require('../routes/citasRutas'));
 
