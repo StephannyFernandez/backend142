@@ -3,29 +3,37 @@ const mongoose = require('mongoose');
 
 // el modelo que hacemos aca es el que vamos a montar en post
 
-const clienteSchema = mongoose.Schema({
+const productoSchema = mongoose.Schema({
 
-    nombres:{
+    Nombredelproducto:{
         type: String,
         required:true
     },
-    apellidos:{
+    Descripciondelproducto:{
         type:String,
         required:true
     },
-    documento:{
+    Codigodebarras:{
         type:Number,
         required:true
     },
-    Correo:{
+    Unidades:{
+        type:Number,
+        required:true
+    },
+    Precioventa:{
+        type:Number,
+        required:true
+    },
+    Ubicacion:{
         type:String,
         required:true
     },
-    telefono:{
-        type:Number,
+    Categoria:{
+        type:String,
         required:true
     },
-    direccion:{
+    Marca:{
         type:String,
         required:true
     },
@@ -34,5 +42,5 @@ const clienteSchema = mongoose.Schema({
 
 },{versionkey:false});
 
-module.exports = mongoose.model('Cliente', clienteSchema);
+module.exports = mongoose.model('Producto', productoSchema);
 
