@@ -35,4 +35,3 @@ const clienteSchema = mongoose.Schema({
 },{versionkey:false});
 
 module.exports = mongoose.model('Cliente', clienteSchema);
-
